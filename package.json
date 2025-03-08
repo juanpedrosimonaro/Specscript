@@ -1,0 +1,33 @@
+{
+  "name": "specscript",
+  "version": "1.0.0",
+  "description": "Compilador Specscript",
+  "main": "index.ts",
+  "scripts": {
+    "test": "jest --detectOpenHandles --runInBand",
+    "generate": "antlr4ng -Dlanguage=TypeScript -o .antlr $npm_config_grammarFile",
+    "start": "node --loader ts-node/esm index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/juanpedrosimonaro/Specscript.git"
+  },
+  "keywords": [
+    "compiladores",
+    "uvm",
+    "juanpedrosimonaro"
+  ],
+  "author": "Juan Simonaro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanpedrosimonaro/Specscript/issues"
+  },
+  "homepage": "https://github.com/juanpedrosimonaro/Specscript#readme",
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/typescript": "^2.0.0",
+    "antlr4ng": "^3.0.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

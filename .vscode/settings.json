@@ -1,0 +1,15 @@
+{
+    "antlr4.debug": {
+
+        "visualParseTreeHorizontal": true,
+        "visualParseTreeClustered": false
+    },
+    "antlr4.generation": {
+
+        "mode": "internal",
+        "listeners": true,
+        "visitors": true,
+        "language": "TypeScript",
+        "outputDir": "./src/generated"
+    }
+}

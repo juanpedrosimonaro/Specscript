@@ -1,0 +1,6 @@
+*.swp
+Muestra*
+Ejemplo*
+node_modules/
+package-lock.json
+src
