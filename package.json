@@ -5,8 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "test": "jest --detectOpenHandles --runInBand",
-    "generate": "antlr4ng -Dlanguage=TypeScript -o .antlr $npm_config_grammarFile",
-    "start": "node --loader ts-node/esm index.ts"
+    "generate": "antlr4ng -Dlanguage=TypeScript -o src/generated -no-listener -visitor $npm_config_grammarFile",
+    "start": "npx tsc && node dist/index.js",
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",

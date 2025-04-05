@@ -3,4 +3,9 @@ Muestra*
 Ejemplo*
 node_modules/
 package-lock.json
-src
+*.swo
+.antlr2/
+TODO.md
+input2.sps
+nuevoToken.txt
+output*
