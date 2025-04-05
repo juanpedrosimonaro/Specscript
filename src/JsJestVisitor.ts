@@ -37,19 +37,19 @@ public visitProg = (ctx: ProgContext): string => {
     );
 
     const datosCaracteristica : string[] = this.visit(caracteristica) as string[] || [] ; //caracteristica.getText();
-    this.codigoGenerado += `import ${this.nombreClase} from "../codigoParaProbar/${this.nombreClase}"\n`;
+    this.codigoGenerado += `import ${this.nombreClase} from "./codigoParaProbar/${this.nombreClase}"\n`;
     if (antecedentes) {
       const antArray = this.visit(antecedentes) as string[];
       this.globales = antArray.slice(1); 
-      this.codigoGenerado += `import {${this.globales.join(", ")}} from "../datos.json"\n`;
-      this.codigoGenerado += `\nBeforeAll(()=>{ \n`;
+      this.codigoGenerado += `import {${this.globales.join(", ")}} from "./datos.json"\n`;
+      this.codigoGenerado += `\nbeforeAll(()=>{ \n`;
       if(datosCaracteristica?.length>=2){
         this.codigoGenerado += `\tconsole.log("${datosCaracteristica[0]}\\n${datosCaracteristica[1]}");  \n`;
         this.codigoGenerado += `\tconsole.log("Antecedente: ${antArray[0]}");  \n`;
       }
     }
     else {
-      this.codigoGenerado += `\nBeforeAll(()=>{ \n \tconsole.log("${datosCaracteristica[0]}\\n${datosCaracteristica[1]}");\n`;
+      this.codigoGenerado += `\nbeforeAll(()=>{ \n \tconsole.log("${datosCaracteristica[0]}\\n${datosCaracteristica[1]}");\n`;
     }
     this.codigoGenerado += "});\n"
 
@@ -85,7 +85,7 @@ public visitEscenario = (ctx: EscenarioContext): string => {
   let codigoEscenario = "";
   let i = 1;
   let nomRes = "resultado1"
-  codigoEscenario += `\ndescribe("${ctx.nombreEscenario().getText()}",()=>{\n`;
+  codigoEscenario += `\ntest("${ctx.nombreEscenario().getText()}",()=>{\n`;
   ctx.escEsp().forEach(escEsp=>{
     const child = escEsp.desEspecificacion();
     if(child instanceof OperacionSimpleContext){
